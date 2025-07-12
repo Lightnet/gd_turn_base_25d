@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://iwirc2lqjo0k"]
+
+[ext_resource type="Script" uid="uid://bpycrw26tcx4o" path="res://scripts/game_controller.gd" id="1_foxrg"]
+[ext_resource type="PackedScene" uid="uid://biollbtjern6s" path="res://scenes/ui_test_loader.tscn" id="2_foxrg"]
+
+[node name="GameController" type="Node" node_paths=PackedStringArray("world_3d", "world_2d", "gui", "current_gui_scene")]
+script = ExtResource("1_foxrg")
+world_3d = NodePath("World3D")
+world_2d = NodePath("World2D")
+gui = NodePath("GUI")
+current_gui_scene = NodePath("GUI/UITestLoader")
+
+[node name="World2D" type="Node2D" parent="."]
+
+[node name="World3D" type="Node3D" parent="."]
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="UITestLoader" parent="GUI" instance=ExtResource("2_foxrg")]
+scene_path = "res://scenes/open_world_battle25d.tscn"

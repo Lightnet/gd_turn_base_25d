@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ResearchData" load_steps=2 format=3 uid="uid://7wq1jkvp0180"]
+
+[ext_resource type="Script" uid="uid://bay1oaxem5uav" path="res://research/ResearchData.gd" id="1_adyrb"]
+
+[resource]
+script = ExtResource("1_adyrb")
+Name = "Hopper Car"
+description = "Tranportion Hopper"
+isUnlocked = false
+cost = 0
+level = 0

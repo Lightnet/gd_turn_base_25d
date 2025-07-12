@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2lqixhexjrrf"]
+
+[ext_resource type="Script" uid="uid://bpycrw26tcx4o" path="res://scripts/game_controller.gd" id="1_vc4nx"]
+[ext_resource type="PackedScene" uid="uid://dcos0hdsoo5jc" path="res://scenes/splash_screen_manager.tscn" id="2_vc4nx"]
+
+[node name="GameController" type="Node"]
+script = ExtResource("1_vc4nx")
+
+[node name="World2D" type="Node2D" parent="."]
+
+[node name="World3D" type="Node3D" parent="."]
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="GUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GUI/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Test"
+
+[node name="SplashScreenManager" parent="GUI" instance=ExtResource("2_vc4nx")]

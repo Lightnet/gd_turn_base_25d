@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://d343vlb240aum"]
+
+[ext_resource type="Script" uid="uid://c7g5l28b4e511" path="res://gamemode/turnbase/entity_character01.gd" id="1_domcm"]
+
+[node name="EntityCharacter" type="HBoxContainer"]
+script = ExtResource("1_domcm")
+
+[node name="Label_Select" type="Label" parent="."]
+layout_mode = 2
+text = "[]"
+
+[node name="Label_Name" type="Label" parent="."]
+layout_mode = 2
+text = "Guest"
+
+[node name="LabelHP" type="Label" parent="."]
+layout_mode = 2
+text = "HP:"
+
+[node name="Label_HP" type="Label" parent="."]
+layout_mode = 2
+text = "1000"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+text = "Select"

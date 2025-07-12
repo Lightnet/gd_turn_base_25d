@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ResearchData" load_steps=2 format=3 uid="uid://bgoxtm4ghl6tr"]
+
+[ext_resource type="Script" uid="uid://bay1oaxem5uav" path="res://research/ResearchData.gd" id="1_colsu"]
+
+[resource]
+script = ExtResource("1_colsu")
+Name = "Gondolas Car"
+description = ""
+isUnlocked = false
+cost = 0
+level = 0

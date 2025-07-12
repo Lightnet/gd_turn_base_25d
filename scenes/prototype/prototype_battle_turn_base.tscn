@@ -1,0 +1,129 @@
+[gd_scene load_steps=9 format=3 uid="uid://dup341nnuianm"]
+
+[ext_resource type="Texture2D" uid="uid://bvy1j12eggfti" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="1_jmtt8"]
+[ext_resource type="Material" uid="uid://2rfnmnpkbsib" path="res://prefabs/prototype/material/black_grid.tres" id="2_544mn"]
+[ext_resource type="Material" uid="uid://dpsv1ha2hx8ta" path="res://prefabs/prototype/material/white_grid.tres" id="3_ln6yn"]
+[ext_resource type="Script" uid="uid://cxvwpj3nhbh8u" path="res://prefabs/turnbase/test_turnbase.gd" id="4_1dsem"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_340pc"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_esbtw"]
+sky_material = SubResource("ProceduralSkyMaterial_340pc")
+
+[sub_resource type="Environment" id="Environment_k0ih6"]
+background_mode = 2
+sky = SubResource("Sky_esbtw")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3oqu8"]
+albedo_texture = ExtResource("1_jmtt8")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 1
+
+[node name="Node" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_k0ih6")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Node3D"]
+use_collision = true
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+size = Vector3(10, 1, 1)
+material = ExtResource("2_544mn")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -3)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_ln6yn")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -2)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_ln6yn")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -3)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_ln6yn")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -2)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_ln6yn")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 1)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_ln6yn")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 2)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 1)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_ln6yn")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 2)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_ln6yn")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+size = Vector3(10, 1, 1)
+material = ExtResource("2_544mn")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+material_override = SubResource("StandardMaterial3D_3oqu8")
+size = Vector3(10, 1, 10)
+material = ExtResource("2_544mn")
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.941235, 0.337752, 0, -0.337752, 0.941235, 0, 3.02352, 3.87027)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_1dsem")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 262.0
+offset_right = 386.0
+offset_bottom = 457.0
+
+[node name="btn_attack01" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+text = "Attack"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 250.0
+offset_right = 921.0
+offset_bottom = 445.0
+
+[node name="btn_attack02" type="Button" parent="CanvasLayer/Control/VBoxContainer2"]
+layout_mode = 2
+text = "Attack"
+
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/btn_attack01" to="CanvasLayer/Control" method="_on_btn_attack_01_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer2/btn_attack02" to="CanvasLayer/Control" method="_on_btn_attack_02_pressed"]

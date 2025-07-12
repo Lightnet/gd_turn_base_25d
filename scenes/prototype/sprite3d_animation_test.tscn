@@ -1,0 +1,167 @@
+[gd_scene load_steps=12 format=3 uid="uid://cnfhc1hav0weo"]
+
+[ext_resource type="Script" uid="uid://c5witki1l2ggc" path="res://scripts/dummy/ui_battle_input01.gd" id="1_krlsq"]
+[ext_resource type="Script" uid="uid://d36sewb5yai7q" path="res://scripts/entities/label_state.gd" id="2_eci7n"]
+[ext_resource type="Texture2D" uid="uid://bvy1j12eggfti" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="3_14q5q"]
+[ext_resource type="Material" uid="uid://dpsv1ha2hx8ta" path="res://prefabs/prototype/material/white_grid.tres" id="4_raqso"]
+[ext_resource type="Material" uid="uid://2rfnmnpkbsib" path="res://prefabs/prototype/material/black_grid.tres" id="5_b7uie"]
+[ext_resource type="PackedScene" uid="uid://b5lnsnwstsisx" path="res://prefabs/dummy_player/player_sprite3d.tscn" id="6_ssuus"]
+[ext_resource type="Script" uid="uid://db5i3q8q5uju3" path="res://scripts/tests/animation_control_test.gd" id="7_t1dox"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_340pc"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_esbtw"]
+sky_material = SubResource("ProceduralSkyMaterial_340pc")
+
+[sub_resource type="Environment" id="Environment_k0ih6"]
+background_mode = 2
+sky = SubResource("Sky_esbtw")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3oqu8"]
+albedo_texture = ExtResource("3_14q5q")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 1
+
+[node name="Node" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_k0ih6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("player1")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_krlsq")
+player1 = NodePath("../../player_sprite3d1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 439.0
+offset_right = 148.0
+offset_bottom = 634.0
+
+[node name="btn_attack01" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+text = "Attack"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "State:"
+
+[node name="Label_State" type="Label" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("player")]
+layout_mode = 2
+text = "None"
+script = ExtResource("2_eci7n")
+player = NodePath("../../../../../player_sprite3d1")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1008.0
+offset_top = 445.0
+offset_right = 1137.0
+offset_bottom = 640.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "State:"
+
+[node name="Label_State" type="Label" parent="CanvasLayer/Control/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "None"
+
+[node name="btn_attack02" type="Button" parent="CanvasLayer/Control/VBoxContainer2"]
+layout_mode = 2
+text = "Attack"
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Level"]
+use_collision = true
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1, -4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("4_raqso")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, -4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("4_raqso")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("4_raqso")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("4_raqso")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, 4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("4_raqso")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("4_raqso")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1, 4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("4_raqso")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, 4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("4_raqso")
+
+[node name="wall" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1, 0)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+size = Vector3(1, 1, 10)
+material = ExtResource("5_b7uie")
+
+[node name="wall2" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, 0)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+size = Vector3(1, 1, 10)
+material = ExtResource("5_b7uie")
+
+[node name="ground" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+material_override = SubResource("StandardMaterial3D_3oqu8")
+size = Vector3(8, 1, 10)
+material = ExtResource("5_b7uie")
+
+[node name="Camera3D" type="Camera3D" parent="Level"]
+transform = Transform3D(-4.37114e-08, -0.337095, 0.941471, 0, 0.941471, 0.337095, -1, 1.47349e-08, -4.1153e-08, 4.012, 3.02352, 0.431552)
+
+[node name="player_sprite3d1" parent="." instance=ExtResource("6_ssuus")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.643591, 1.493, 1.82589)
+
+[node name="player_sprite3d2" parent="." instance=ExtResource("6_ssuus")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.643591, 1.493, -1.21075)
+
+[node name="AnimationControlTest" type="Node3D" parent="."]
+script = ExtResource("7_t1dox")
+
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/btn_attack01" to="CanvasLayer/Control" method="_on_btn_attack_01_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer2/btn_attack02" to="CanvasLayer/Control" method="_on_btn_attack_02_pressed"]

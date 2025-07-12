@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://w80b4qtyljr7"]
+
+[ext_resource type="Script" uid="uid://b0nlmubi2f6sr" path="res://scripts/node_3d_change_scene.gd" id="1_i8jax"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_djexh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djexh"]
+transparency = 1
+albedo_color = Color(0.615686, 0.211765, 0.184314, 0.427451)
+
+[sub_resource type="BoxMesh" id="BoxMesh_djexh"]
+material = SubResource("StandardMaterial3D_djexh")
+
+[node name="DummyMob" type="Node3D" groups=["mob"]]
+script = ExtResource("1_i8jax")
+id = null
+enable = null
+scene_name = "res://scenes/battle_turn_base_mode_test.tscn"
+open_world = null
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_djexh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_djexh")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

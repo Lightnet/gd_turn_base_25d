@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=2 format=3 uid="uid://blbjgp64oabok"]
+
+[ext_resource type="Script" uid="uid://mg33bjjytk20" path="res://character/CharacterData.gd" id="1_6kamo"]
+
+[resource]
+script = ExtResource("1_6kamo")
+ID = "MC"
+Name = "MC"
+Gender = "male"
+Description = "Warrior attack with sword"
+Level = 0
+ExperincePoint = 0
+MaxExperincePoint = 100
+HealthPoint = 100
+MaxHealthPoint = 100
+MagicPoint = 100
+MaxMagicPoint = 100
+Attack = 1.0
+Defense = 0.0
+MagicAttack = 0.0
+MagicDefense = 0.0

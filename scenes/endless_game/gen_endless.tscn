@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://barxqccfi5rf4"]
+
+[ext_resource type="Texture2D" uid="uid://d1x4l17kpphmn" path="res://addons/kenney_prototype_textures/green/texture_08.png" id="1_je41x"]
+[ext_resource type="PackedScene" uid="uid://bs0dwbw8rbpxh" path="res://prefabs/generates/props/blocks.tscn" id="2_xs4uk"]
+[ext_resource type="Script" uid="uid://bgkcmtvsaic2b" path="res://scripts/prototypes/generate_props.gd" id="3_bhijc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o27cn"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_8i4dj"]
+sky_material = SubResource("ProceduralSkyMaterial_o27cn")
+
+[sub_resource type="Environment" id="Environment_3diku"]
+background_mode = 2
+sky = SubResource("Sky_8i4dj")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vb37o"]
+albedo_texture = ExtResource("1_je41x")
+
+[node name="world" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3diku")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.919753, 0.392498, 0, -0.392498, 0.919753, 0, 2.09122, 3.95349)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+material = SubResource("StandardMaterial3D_vb37o")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="blocks" parent="." instance=ExtResource("2_xs4uk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.81428, 0, 0)
+
+[node name="generate_props" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88273, 0, 0)
+script = ExtResource("3_bhijc")
+prop = ExtResource("2_xs4uk")

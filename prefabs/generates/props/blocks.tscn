@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs0dwbw8rbpxh"]
+
+[ext_resource type="Texture2D" uid="uid://dr6psqr6ivji6" path="res://addons/kenney_prototype_textures/red/texture_02.png" id="1_bcp74"]
+[ext_resource type="Script" uid="uid://bxciedc0qyc0x" path="res://prefabs/generates/props/blocks_move.gd" id="2_884vx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0q33a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fswco"]
+albedo_texture = ExtResource("1_bcp74")
+
+[node name="blocks" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_0q33a")
+surface_material_override/0 = SubResource("StandardMaterial3D_fswco")
+script = ExtResource("2_884vx")

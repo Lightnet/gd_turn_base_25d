@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ResearchData" load_steps=2 format=3 uid="uid://byqnrvso7oyvt"]
+
+[ext_resource type="Script" uid="uid://bay1oaxem5uav" path="res://research/ResearchData.gd" id="1_jf7cr"]
+
+[resource]
+script = ExtResource("1_jf7cr")
+Name = "Refrigerator Car"
+description = ""
+isUnlocked = false
+cost = 0
+level = 0

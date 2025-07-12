@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PlayerResearch" load_steps=3 format=3 uid="uid://cha1ad2q2o28h"]
+
+[ext_resource type="Script" uid="uid://d0aqi434p1603" path="res://research/PlayerResearch.gd" id="1_55tpc"]
+[ext_resource type="Script" uid="uid://bay1oaxem5uav" path="res://research/ResearchData.gd" id="1_rx5re"]
+
+[resource]
+script = ExtResource("1_55tpc")
+teachpoints = 99999999999
+Researchs = Array[ExtResource("1_rx5re")]([])

@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7jas6wh6vw2q"]
+
+[ext_resource type="Texture2D" uid="uid://cymvcij6s8tc2" path="res://prefabs/character/player/texture/Character Idle 48x48.png" id="2_hx5sr"]
+
+[sub_resource type="Animation" id="Animation_kdnf4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture:atlas:load_path")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["res://.godot/imported/Character Idle 48x48.png-d5c3d8a4694d1724c517e79d55ba289a.ctex"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:texture:region")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 48, 48)]
+}
+
+[sub_resource type="Animation" id="Animation_s3pvr"]
+resource_name = "idle"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture:atlas:load_path")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["res://.godot/imported/Character Idle 48x48.png-d5c3d8a4694d1724c517e79d55ba289a.ctex"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:texture:region")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 48, 48), Rect2(48, 0, 48, 48), Rect2(96, 0, 48, 48), Rect2(144, 0, 48, 48), Rect2(192, 0, 48, 48), Rect2(240, 0, 48, 48), Rect2(288, 0, 48, 48), Rect2(336, 0, 48, 48), Rect2(384, 0, 48, 48), Rect2(432, 0, 48, 48)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5lxwy"]
+_data = {
+&"RESET": SubResource("Animation_kdnf4"),
+&"idle": SubResource("Animation_s3pvr")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iluom"]
+atlas = ExtResource("2_hx5sr")
+region = Rect2(0, 0, 48, 48)
+
+[node name="player_animation2d" type="Node3D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5lxwy")
+}
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture_filter = 0
+texture = SubResource("AtlasTexture_iluom")

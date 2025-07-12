@@ -1,0 +1,108 @@
+[gd_scene load_steps=10 format=3 uid="uid://bbp0j3f8tx8mo"]
+
+[ext_resource type="Texture2D" uid="uid://bvy1j12eggfti" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="1_cw1h8"]
+[ext_resource type="Material" uid="uid://2rfnmnpkbsib" path="res://prefabs/prototype/material/black_grid.tres" id="2_y48hu"]
+[ext_resource type="Material" uid="uid://dpsv1ha2hx8ta" path="res://prefabs/prototype/material/white_grid.tres" id="3_u8qnu"]
+[ext_resource type="Texture2D" uid="uid://dcf8fesxjoaue" path="res://addons/kenney_prototype_textures/dark/texture_07.png" id="5_igior"]
+[ext_resource type="Script" uid="uid://c1xcys88f8fe4" path="res://scripts/prototypes/mesh_instance_3d_srcoll.gd" id="6_77amn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3oqu8"]
+albedo_texture = ExtResource("1_cw1h8")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owxuj"]
+albedo_texture = ExtResource("5_igior")
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c5upy"]
+material = SubResource("StandardMaterial3D_owxuj")
+size = Vector2(64, 64)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ggfys"]
+albedo_texture = ExtResource("5_igior")
+uv1_offset = Vector3(1101.71, 1338.01, -789.531)
+uv1_triplanar = true
+
+[node name="Node" type="Node"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Node3D"]
+use_collision = true
+
+[node name="wall_right_01" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1, 0)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+size = Vector3(1, 1, 10)
+material = ExtResource("2_y48hu")
+
+[node name="wall_front_right01" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_u8qnu")
+
+[node name="wall_front_right02" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_u8qnu")
+
+[node name="wall_front_left01" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1, -4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_u8qnu")
+
+[node name="wall_front_left02" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, -4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_u8qnu")
+
+[node name="wall_rear_left01" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1, 4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+
+[node name="wall_rear_left02" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, 4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_u8qnu")
+
+[node name="wall_rear_right01" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, 4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_u8qnu")
+
+[node name="wall_rear_right02" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_u8qnu")
+
+[node name="wall_right01" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -9.68575e-08)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+size = Vector3(1, 1, 10)
+material = ExtResource("2_y48hu")
+
+[node name="train_deck" type="CSGBox3D" parent="Node3D/CSGCombiner3D"]
+material_override = SubResource("StandardMaterial3D_3oqu8")
+size = Vector3(8, 1, 10)
+material = ExtResource("2_y48hu")
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.941235, 0.337752, 0, -0.337752, 0.941235, 0, 3.02352, 4.95767)
+visible = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.80798, 0.58921, 0, -0.58921, 0.80798, 0, 2.61123, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25365, 0)
+mesh = SubResource("PlaneMesh_c5upy")
+surface_material_override/0 = SubResource("StandardMaterial3D_ggfys")
+script = ExtResource("6_77amn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -26, 0, 0)
+mesh = SubResource("PlaneMesh_c5upy")
+surface_material_override/0 = SubResource("StandardMaterial3D_ggfys")
+script = ExtResource("6_77amn")
