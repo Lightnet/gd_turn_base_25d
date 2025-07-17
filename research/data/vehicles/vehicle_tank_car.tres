@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ResearchData" load_steps=3 format=3 uid="uid://r5k3vfe4fw61"]
+
+[ext_resource type="Script" uid="uid://btif7tedl3bkh" path="res://research/require_research.gd" id="1_nabyu"]
+[ext_resource type="Script" uid="uid://bay1oaxem5uav" path="res://research/research_data.gd" id="2_hql0b"]
+
+[resource]
+script = ExtResource("2_hql0b")
+name = "Tank"
+description = ""
+is_unlocked = false
+cost = 0
+level = 0
+require_techs = Array[ExtResource("1_nabyu")]([])

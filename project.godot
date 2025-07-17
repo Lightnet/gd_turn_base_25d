@@ -10,18 +10,23 @@ config_version=5
 
 [application]
 
-config/name="GD Turn Base 25D"
+config/name="GD Train Mobile Base"
 config/tags=PackedStringArray("2.5d", "demo", "experiment", "turnbase")
-run/main_scene="uid://iwirc2lqjo0k"
+run/main_scene="uid://ofucwlfkl4a6"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameData="*res://gamemode/Game_Data.gd"
+GameData="*res://scripts/management/game_data.gd"
 GameAPI="*res://scripts/entities/GameAPI.gd"
 CharacterManagement="*res://scripts/management/character_management.gd"
 Global="*res://scripts/management/global.gd"
+Console="*res://addons/console/console.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/console/plugin.cfg")
 
 [global_group]
 

@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbytrfongh7oq"]
+
+[ext_resource type="Script" uid="uid://dl0jak6ybima7" path="res://scenes/ui/ui_research_slot.gd" id="1_s8a8f"]
+
+[node name="UIResearchSlot" type="HBoxContainer"]
+script = ExtResource("1_s8a8f")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Name:"
+
+[node name="Label_Name" type="Label" parent="."]
+layout_mode = 2
+text = "None"
+
+[node name="SplitContainer" type="SplitContainer" parent="."]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+text = "Cost:"
+
+[node name="Label_Cost" type="Label" parent="."]
+layout_mode = 2
+text = "0"
+
+[node name="SplitContainer2" type="SplitContainer" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="btn_unlock" type="Button" parent="."]
+layout_mode = 2
+text = "Unlocked"
+
+[node name="SplitContainer3" type="SplitContainer" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[connection signal="pressed" from="btn_unlock" to="." method="_on_btn_unlock_pressed"]

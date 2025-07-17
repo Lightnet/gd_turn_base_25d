@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyijgnm8ayc7n"]
+
+[ext_resource type="Script" uid="uid://ekojaly6m4fr" path="res://scenes/ui/ui_player_slot.gd" id="1_b17ww"]
+
+[node name="UIPlayerSlot" type="MarginContainer"]
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_b17ww")
+next_gui = "res://scenes/ui/ui_hub_area.tscn"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = " Name: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_Name" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = " None"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = " Gender: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_Gender" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = " None"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn_create" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = " Create "
+
+[node name="btn_delete" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = " Delete "
+
+[node name="btn_load" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = " Load "
+
+[connection signal="pressed" from="VBoxContainer/btn_delete" to="." method="_on_btn_delete_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn_load" to="." method="_on_btn_load_pressed"]

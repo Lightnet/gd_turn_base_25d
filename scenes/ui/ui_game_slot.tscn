@@ -1,0 +1,131 @@
+[gd_scene load_steps=5 format=3 uid="uid://crid1pehjf4r8"]
+
+[ext_resource type="Script" uid="uid://d0gu7f7kusugh" path="res://scenes/ui/ui_game_slot.gd" id="1_6i3fx"]
+[ext_resource type="Script" uid="uid://sa27oyyv4tyb" path="res://scenes/ui/btn_change_next_scene.gd" id="1_72xu1"]
+[ext_resource type="PackedScene" uid="uid://cyijgnm8ayc7n" path="res://scenes/ui/ui_player_slot.tscn" id="3_5wjr8"]
+[ext_resource type="PackedScene" uid="uid://f0mch0cf0407" path="res://scenes/ui/ui_create_player.tscn" id="4_c5xh4"]
+
+[node name="UIGameSlot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6i3fx")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="btn_back" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = " Back "
+script = ExtResource("1_72xu1")
+next_gui = "res://scenes/ui/ui_main_menu.tscn"
+
+[node name="btn_create" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = " Create "
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(512, 202.82)
+layout_mode = 2
+
+[node name="HPlayerDataSlot" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/HPlayerDataSlot" instance=ExtResource("3_5wjr8")]
+layout_mode = 2
+
+[node name="UICreatePlayer" parent="." instance=ExtResource("4_c5xh4")]
+visible = false
+layout_mode = 1
+
+[node name="UIDelete" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="UIDelete"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UIDelete/CenterContainer"]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="UIDelete/CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UIDelete/CenterContainer/PanelContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIDelete/CenterContainer/PanelContainer/CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UIDelete/CenterContainer/PanelContainer/CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Confirm Delete?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UIDelete/CenterContainer/PanelContainer/CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="UIDelete/CenterContainer/PanelContainer/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Name:"
+
+[node name="Label_Delete_Name" type="Label" parent="UIDelete/CenterContainer/PanelContainer/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "None"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UIDelete/CenterContainer/PanelContainer/CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="btn_delete_confirm" type="Button" parent="UIDelete/CenterContainer/PanelContainer/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = " Delete "
+
+[node name="btn_delete_cancel" type="Button" parent="UIDelete/CenterContainer/PanelContainer/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = " Cancel  "
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/btn_create" to="." method="_on_btn_create_pressed"]
+[connection signal="pressed" from="UIDelete/CenterContainer/PanelContainer/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer2/btn_delete_confirm" to="." method="_on_btn_delete_confirm_pressed"]
+[connection signal="pressed" from="UIDelete/CenterContainer/PanelContainer/CenterContainer/MarginContainer/VBoxContainer/HBoxContainer2/btn_delete_cancel" to="." method="_on_btn_delete_cancel_pressed"]

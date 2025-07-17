@@ -22,7 +22,6 @@ func _on_btn_create_character_pressed():
 	
 	GameData.save_Character_Data(new_character)
 	
-	
 	create_player.hide()
 	game_single_player.show()
 	pass

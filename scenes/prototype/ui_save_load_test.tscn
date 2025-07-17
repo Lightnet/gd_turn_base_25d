@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2w1qmpdyplex"]
+
+[ext_resource type="Script" uid="uid://b2icxv7qtektl" path="res://scenes/prototype/control_save_load.gd" id="1_2kag4"]
+
+[node name="UiSaveLoadTest" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2kag4")
+
+[node name="btn_save" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 52.0
+offset_bottom = 40.0
+text = "Save"
+
+[node name="btn_load" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 8.0
+offset_right = 115.0
+offset_bottom = 39.0
+text = "Load"
+
+[connection signal="pressed" from="CanvasLayer/Control/btn_save" to="CanvasLayer/Control" method="_on_btn_save_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/btn_load" to="CanvasLayer/Control" method="_on_btn_load_pressed"]

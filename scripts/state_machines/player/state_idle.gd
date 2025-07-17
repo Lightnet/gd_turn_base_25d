@@ -2,12 +2,17 @@ extends DummyPlayerState
 
 func handle_input(event: InputEvent) -> void:
 	
+	if not player.is_controller:
+		return
+		
 	if event.is_action_pressed("left") or event.is_action_pressed("right") or event.is_action_pressed("up") or event.is_action_pressed("down") :
 		finished.emit(WALK)
 		pass
+		
 	if event.is_action_pressed("jump"):
 		finished.emit(JUMP)
 		pass
+		
 	#pass
 
 func update(_delta: float) -> void:

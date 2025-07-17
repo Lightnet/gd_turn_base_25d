@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ResearchTree" load_steps=5 format=3 uid="uid://bebwc0r5643ep"]
+
+[ext_resource type="Script" uid="uid://bay1oaxem5uav" path="res://research/research_data.gd" id="1_0giu1"]
+[ext_resource type="Script" uid="uid://btif7tedl3bkh" path="res://research/require_research.gd" id="2_0bvs2"]
+[ext_resource type="Script" uid="uid://5i7n6wa53pp4" path="res://research/research_tree.gd" id="2_54eh1"]
+
+[sub_resource type="Resource" id="Resource_hdxlv"]
+script = ExtResource("1_0giu1")
+name = ""
+description = ""
+is_unlocked = false
+cost = 0
+level = 0
+require_techs = Array[ExtResource("2_0bvs2")]([null])
+metadata/_custom_type_script = "uid://bay1oaxem5uav"
+
+[resource]
+script = ExtResource("2_54eh1")
+name = "Test"
+researchs = Array[ExtResource("1_0giu1")]([SubResource("Resource_hdxlv")])
+metadata/_custom_type_script = "uid://5i7n6wa53pp4"

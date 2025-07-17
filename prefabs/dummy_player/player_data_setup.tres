@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=7 format=3 uid="uid://i482axqbqo8w"]
+
+[ext_resource type="Script" uid="uid://mg33bjjytk20" path="res://scripts/entities/characters/CharacterData.gd" id="1_d0dxq"]
+[ext_resource type="Script" uid="uid://bay1oaxem5uav" path="res://research/research_data.gd" id="2_7vkg4"]
+[ext_resource type="Script" uid="uid://c60cr61b4csj3" path="res://scripts/entities/player_data.gd" id="2_pw8ht"]
+[ext_resource type="Resource" uid="uid://b765n347aiuyi" path="res://research/data/vehicles/vehcie_box.tres" id="3_xjjd1"]
+[ext_resource type="Resource" uid="uid://802d6otilwjn" path="res://research/data/vehicles/vehicle_car_flat.tres" id="4_tpenf"]
+[ext_resource type="Resource" uid="uid://bi8jx7sxi7acr" path="res://research/data/vehicles/vehicle_locomotive.tres" id="5_5kb65"]
+
+[resource]
+script = ExtResource("2_pw8ht")
+name = ""
+gender = "male"
+tech_point = 0
+members = Array[ExtResource("1_d0dxq")]([])
+researches = Array[ExtResource("2_7vkg4")]([ExtResource("3_xjjd1"), ExtResource("4_tpenf"), ExtResource("5_5kb65")])
+open_world_path = ""
+open_world_pos = Vector3(0, 0, 0)
+open_world_id = 0
+open_world_save_point = ""
+metadata/_custom_type_script = "uid://c60cr61b4csj3"

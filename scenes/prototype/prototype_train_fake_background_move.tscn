@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://c0rdfwlwgtrun"]
 
 [ext_resource type="Texture2D" uid="uid://bvy1j12eggfti" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="1_ylsqj"]
-[ext_resource type="Material" uid="uid://2rfnmnpkbsib" path="res://prefabs/prototype/material/black_grid.tres" id="2_u3crf"]
-[ext_resource type="Material" uid="uid://dpsv1ha2hx8ta" path="res://prefabs/prototype/material/white_grid.tres" id="3_i6mmw"]
+[ext_resource type="Material" uid="uid://2rfnmnpkbsib" path="res://prefabs/materials/black_grid.tres" id="2_u3crf"]
+[ext_resource type="Material" uid="uid://dpsv1ha2hx8ta" path="res://prefabs/materials/white_grid.tres" id="3_i6mmw"]
 [ext_resource type="Texture2D" uid="uid://dcf8fesxjoaue" path="res://addons/kenney_prototype_textures/dark/texture_07.png" id="4_vkquc"]
 [ext_resource type="Script" uid="uid://c1xcys88f8fe4" path="res://scripts/prototypes/mesh_instance_3d_srcoll.gd" id="5_wguda"]
 
@@ -37,7 +37,7 @@ size = Vector2(64, 64)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tmfn6"]
 albedo_texture = ExtResource("4_vkquc")
-uv1_offset = Vector3(200.494, 5.9379, -29.1836)
+uv1_offset = Vector3(200.494, 5.9379, -66.6871)
 uv1_triplanar = true
 
 [node name="Node" type="Node"]
@@ -127,16 +127,3 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tmfn6")
 script = ExtResource("5_wguda")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="BodyPlayer" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 0)
-script = null

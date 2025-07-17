@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dcos0hdsoo5jc"]
 
-[ext_resource type="Script" uid="uid://bqnxqcso6v8p4" path="res://scripts/splash_screen_manager.gd" id="1_pspwt"]
+[ext_resource type="Script" uid="uid://bqnxqcso6v8p4" path="res://scripts/ui/splash_screen_manager.gd" id="1_pspwt"]
 [ext_resource type="Texture2D" uid="uid://42pufu1mh3j8" path="res://icon.svg" id="2_kkrr7"]
 
 [node name="SplashScreenManager" type="Control" node_paths=PackedStringArray("splash_screen_container")]
@@ -38,10 +38,24 @@ texture = ExtResource("2_kkrr7")
 layout_mode = 2
 texture = ExtResource("2_kkrr7")
 
-[node name="Screen3" type="TextureRect" parent="SplashContainer"]
-layout_mode = 2
-texture = ExtResource("2_kkrr7")
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Screen4" type="TextureRect" parent="SplashContainer"]
+[node name="SplitContainer1" type="SplitContainer" parent="VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_kkrr7")
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Press Any Keys to Skip"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SplitContainer2" type="SplitContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2

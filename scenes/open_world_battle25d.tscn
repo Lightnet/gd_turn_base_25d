@@ -1,15 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://csnorwsdnsq28"]
+[gd_scene load_steps=18 format=3 uid="uid://csnorwsdnsq28"]
 
 [ext_resource type="Texture2D" uid="uid://bvy1j12eggfti" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="1_djexh"]
-[ext_resource type="Material" uid="uid://2rfnmnpkbsib" path="res://prefabs/prototype/material/black_grid.tres" id="2_oxeua"]
-[ext_resource type="Material" uid="uid://dpsv1ha2hx8ta" path="res://prefabs/prototype/material/white_grid.tres" id="3_6jpl2"]
+[ext_resource type="Material" uid="uid://2rfnmnpkbsib" path="res://prefabs/materials/black_grid.tres" id="2_oxeua"]
+[ext_resource type="Material" uid="uid://dpsv1ha2hx8ta" path="res://prefabs/materials/white_grid.tres" id="3_6jpl2"]
 [ext_resource type="Texture2D" uid="uid://dcf8fesxjoaue" path="res://addons/kenney_prototype_textures/dark/texture_07.png" id="4_kh3av"]
 [ext_resource type="Script" uid="uid://c1xcys88f8fe4" path="res://scripts/prototypes/mesh_instance_3d_srcoll.gd" id="5_atdh8"]
 [ext_resource type="Script" uid="uid://dkv7er8b8cfmi" path="res://scripts/camera/camera_follow.gd" id="6_t1ho2"]
 [ext_resource type="PackedScene" uid="uid://b5lnsnwstsisx" path="res://prefabs/dummy_player/player_sprite3d.tscn" id="7_p4gv7"]
 [ext_resource type="PackedScene" uid="uid://bm4g3p8stuhaf" path="res://prefabs/dummy_mob/dummy_mob.tscn" id="8_qyras"]
-[ext_resource type="PackedScene" uid="uid://b6uk3c5q7tdfm" path="res://scenes/node_3d_test_load.tscn" id="9_dx50h"]
-[ext_resource type="Script" uid="uid://vb00nsy4yeaq" path="res://scripts/exist_player_check.gd" id="10_qyras"]
+[ext_resource type="Script" uid="uid://vb00nsy4yeaq" path="res://scripts/scenes/exist_player_check.gd" id="10_qyras"]
 [ext_resource type="Script" uid="uid://dupkkcg15ydk3" path="res://scripts/mob/check_defeat_mob.gd" id="11_jetd8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p382f"]
@@ -40,7 +39,7 @@ size = Vector2(64, 64)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ggfys"]
 albedo_texture = ExtResource("4_kh3av")
-uv1_offset = Vector3(1101.71, 1338.01, -24282.4)
+uv1_offset = Vector3(1101.71, 1338.01, -34773)
 uv1_triplanar = true
 
 [node name="Node" type="Node3D"]
@@ -135,6 +134,7 @@ current = true
 
 [node name="player_sprite3d" parent="Level" instance=ExtResource("7_p4gv7")]
 transform = Transform3D(0.0175222, 0, 0.999846, 0, 1, 0, -0.999846, 0, 0.0175222, -0.122387, 1.48908, 0.981818)
+is_controller = true
 
 [node name="DummyMob" parent="Level" instance=ExtResource("8_qyras")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
@@ -145,8 +145,6 @@ open_world = "res://scenes/open_world_battle25d.tscn"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3.12054)
 id = "02"
 open_world = "res://scenes/open_world_battle25d.tscn"
-
-[node name="Node3DTest" parent="Level" instance=ExtResource("9_dx50h")]
 
 [node name="ExistPlayerCheck" type="Node3D" parent="."]
 script = ExtResource("10_qyras")

@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://dax77l1j4pmku"]
+
+[ext_resource type="Script" uid="uid://sa27oyyv4tyb" path="res://scenes/ui/btn_change_next_scene.gd" id="1_857qd"]
+
+[node name="UIMainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="btnPlay" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+script = ExtResource("1_857qd")
+next_world_3d = "res://scenes/open_world_battle25d.tscn"
+
+[node name="btnLoad" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Load"
+script = ExtResource("1_857qd")
+next_gui = "res://scenes/ui/ui_game_slot.tscn"
+
+[node name="btnNewGame2" type="Button" parent="CenterContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "New Game"
+script = ExtResource("1_857qd")
+next_gui = "res://scenes/ui/ui_game_slot.tscn"
+
+[node name="btnOnline" type="Button" parent="CenterContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Online"
+script = ExtResource("1_857qd")
+
+[node name="btnSettings" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings
+"
+script = ExtResource("1_857qd")
+next_gui = "res://scenes/ui/ui_main_menu_settings.tscn"
+
+[node name="btnQuit" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("1_857qd")

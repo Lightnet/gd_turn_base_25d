@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CraftList" load_steps=6 format=3 uid="uid://ch7jm83xh1cvo"]
+
+[ext_resource type="Script" uid="uid://ci2n3lu8swpio" path="res://craft/craft_slot.gd" id="1_2tw3k"]
+[ext_resource type="Script" uid="uid://dnxu5wbavhiw2" path="res://craft/craft_list.gd" id="2_7mgs0"]
+[ext_resource type="Script" uid="uid://byj8qet7wbww0" path="res://craft/craft_data.gd" id="2_h3rn1"]
+
+[sub_resource type="Resource" id="Resource_ce8tw"]
+script = ExtResource("2_h3rn1")
+quantity = 1
+metadata/_custom_type_script = "uid://byj8qet7wbww0"
+
+[sub_resource type="Resource" id="Resource_ld2c1"]
+script = ExtResource("1_2tw3k")
+craft_data = SubResource("Resource_ce8tw")
+requires = Array[ExtResource("2_h3rn1")]([])
+metadata/_custom_type_script = "uid://ci2n3lu8swpio"
+
+[resource]
+script = ExtResource("2_7mgs0")
+items = Array[ExtResource("1_2tw3k")]([SubResource("Resource_ld2c1")])
+metadata/_custom_type_script = "uid://dnxu5wbavhiw2"

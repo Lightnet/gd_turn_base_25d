@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjnjay0w5wif6"]
+
+[ext_resource type="Script" uid="uid://sa27oyyv4tyb" path="res://scenes/ui/btn_change_next_scene.gd" id="2_jpm4y"]
+[ext_resource type="PackedScene" uid="uid://cbytrfongh7oq" path="res://scenes/ui/ui_research_slot.tscn" id="3_2phfw"]
+[ext_resource type="Script" uid="uid://btif7tedl3bkh" path="res://research/require_research.gd" id="3_a3taf"]
+[ext_resource type="Script" uid="uid://bay1oaxem5uav" path="res://research/research_data.gd" id="4_laays"]
+
+[sub_resource type="Resource" id="Resource_bkqba"]
+script = ExtResource("4_laays")
+name = ""
+description = ""
+is_unlocked = false
+cost = 0
+level = 0
+require_techs = Array[ExtResource("3_a3taf")]([])
+metadata/_custom_type_script = "uid://bay1oaxem5uav"
+
+[node name="UIHubCraft" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="btn_back" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Back"
+script = ExtResource("2_jpm4y")
+next_gui = "res://scenes/ui/ui_hub_area.tscn"
+
+[node name="SplitContainer" type="SplitContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Craft"
+
+[node name="SplitContainer2" type="SplitContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="UIResearchSlot" parent="MarginContainer/VBoxContainer/HBoxContainer2/ScrollContainer/VBList" instance=ExtResource("3_2phfw")]
+layout_mode = 2
+research_data = SubResource("Resource_bkqba")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3

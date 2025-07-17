@@ -1,0 +1,153 @@
+[gd_scene load_steps=18 format=3 uid="uid://dwawdxtfhljvw"]
+
+[ext_resource type="Texture2D" uid="uid://bvy1j12eggfti" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="1_yau4w"]
+[ext_resource type="Material" uid="uid://2rfnmnpkbsib" path="res://prefabs/materials/black_grid.tres" id="2_mfodp"]
+[ext_resource type="Material" uid="uid://dpsv1ha2hx8ta" path="res://prefabs/materials/white_grid.tres" id="3_cuvou"]
+[ext_resource type="Texture2D" uid="uid://dcf8fesxjoaue" path="res://addons/kenney_prototype_textures/dark/texture_07.png" id="4_4ngv6"]
+[ext_resource type="Script" uid="uid://c1xcys88f8fe4" path="res://scripts/prototypes/mesh_instance_3d_srcoll.gd" id="5_0cns8"]
+[ext_resource type="Script" uid="uid://dkv7er8b8cfmi" path="res://scripts/camera/camera_follow.gd" id="6_nmpl6"]
+[ext_resource type="PackedScene" uid="uid://b5lnsnwstsisx" path="res://prefabs/dummy_player/player_sprite3d.tscn" id="7_kti5t"]
+[ext_resource type="PackedScene" uid="uid://bm4g3p8stuhaf" path="res://prefabs/dummy_mob/dummy_mob.tscn" id="8_2km5j"]
+[ext_resource type="Script" uid="uid://vb00nsy4yeaq" path="res://scripts/scenes/exist_player_check.gd" id="9_qivi4"]
+[ext_resource type="Script" uid="uid://dupkkcg15ydk3" path="res://scripts/mob/check_defeat_mob.gd" id="10_lyn0c"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p382f"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_7w3dt"]
+sky_material = SubResource("ProceduralSkyMaterial_p382f")
+
+[sub_resource type="Environment" id="Environment_7j0df"]
+background_mode = 2
+sky = SubResource("Sky_7w3dt")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3oqu8"]
+albedo_texture = ExtResource("1_yau4w")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owxuj"]
+albedo_texture = ExtResource("4_4ngv6")
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c5upy"]
+material = SubResource("StandardMaterial3D_owxuj")
+size = Vector2(64, 64)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ggfys"]
+albedo_texture = ExtResource("4_4ngv6")
+uv1_offset = Vector3(1101.71, 1338.01, -34808.7)
+uv1_triplanar = true
+
+[node name="Node" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.80798, 0.58921, 0, -0.58921, 0.80798, 0, 2.61123, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7j0df")
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Level"]
+use_collision = true
+
+[node name="wall_right_01" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1, 0)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+size = Vector3(1, 1, 10)
+material = ExtResource("2_mfodp")
+
+[node name="wall_front_right01" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_cuvou")
+
+[node name="wall_front_right02" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_cuvou")
+
+[node name="wall_front_left01" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1, -4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_cuvou")
+
+[node name="wall_front_left02" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, -4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_cuvou")
+
+[node name="wall_rear_left01" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1, 4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+
+[node name="wall_rear_left02" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, 4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_cuvou")
+
+[node name="wall_rear_right01" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, 4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_cuvou")
+
+[node name="wall_rear_right02" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 4.5)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+material = ExtResource("3_cuvou")
+
+[node name="wall_right01" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -9.68575e-08)
+material_override = SubResource("StandardMaterial3D_3oqu8")
+size = Vector3(1, 1, 10)
+material = ExtResource("2_mfodp")
+
+[node name="train_deck" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+material_override = SubResource("StandardMaterial3D_3oqu8")
+size = Vector3(8, 1, 10)
+material = ExtResource("2_mfodp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25365, 0)
+mesh = SubResource("PlaneMesh_c5upy")
+surface_material_override/0 = SubResource("StandardMaterial3D_ggfys")
+script = ExtResource("5_0cns8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Level"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -26, 0, 0)
+mesh = SubResource("PlaneMesh_c5upy")
+surface_material_override/0 = SubResource("StandardMaterial3D_ggfys")
+script = ExtResource("5_0cns8")
+
+[node name="CameraFollow" type="Node3D" parent="Level" node_paths=PackedStringArray("follow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0565635, 1.37345, 0.934441)
+script = ExtResource("6_nmpl6")
+follow = NodePath("../player_sprite3d")
+
+[node name="Camera3D" type="Camera3D" parent="Level/CameraFollow"]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 3.29394, 3.4235, 0)
+current = true
+
+[node name="player_sprite3d" parent="Level" instance=ExtResource("7_kti5t")]
+transform = Transform3D(0.0175222, 0, 0.999846, 0, 1, 0, -0.999846, 0, 0.0175222, -0.122387, 1.48908, 0.981818)
+is_controller = true
+
+[node name="DummyMob" parent="Level" instance=ExtResource("8_2km5j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+id = "01"
+open_world = "res://scenes/open_world_battle25d.tscn"
+
+[node name="DummyMob2" parent="Level" instance=ExtResource("8_2km5j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3.12054)
+id = "02"
+open_world = "res://scenes/open_world_battle25d.tscn"
+
+[node name="ExistPlayerCheck" type="Node3D" parent="."]
+script = ExtResource("9_qivi4")
+
+[node name="CheckDefeatMob" type="Node3D" parent="."]
+script = ExtResource("10_lyn0c")

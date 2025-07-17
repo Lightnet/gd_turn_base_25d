@@ -14,7 +14,9 @@ func check_defeat_mobs():
 	var mobs = Global.mobs
 	for creature_point in creature_points:
 		for mob in mobs:
-			if creature_point.id == mob.id:
+			#check if mob id exist and if mob was defeat by player
+			if creature_point.id == mob.id and mob.is_defeat == true:
+				#diable node and visible
 				creature_point.set_process_mode(Node.PROCESS_MODE_DISABLED)
 				creature_point.visible = false
 				pass

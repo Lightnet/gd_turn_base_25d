@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c5witki1l2ggc" path="res://scripts/dummy/ui_battle_input01.gd" id="1_62luo"]
 [ext_resource type="Texture2D" uid="uid://bvy1j12eggfti" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="3_i2hr8"]
-[ext_resource type="Material" uid="uid://dpsv1ha2hx8ta" path="res://prefabs/prototype/material/white_grid.tres" id="4_ujmev"]
-[ext_resource type="Material" uid="uid://2rfnmnpkbsib" path="res://prefabs/prototype/material/black_grid.tres" id="5_eq2lj"]
+[ext_resource type="Material" uid="uid://dpsv1ha2hx8ta" path="res://prefabs/materials/white_grid.tres" id="4_ujmev"]
+[ext_resource type="Material" uid="uid://2rfnmnpkbsib" path="res://prefabs/materials/black_grid.tres" id="5_eq2lj"]
 [ext_resource type="PackedScene" uid="uid://b5lnsnwstsisx" path="res://prefabs/dummy_player/player_sprite3d.tscn" id="5_k53ou"]
 [ext_resource type="Script" uid="uid://3c4ki6mw6rxc" path="res://scripts/entities/stats_data.gd" id="6_62luo"]
 [ext_resource type="Script" uid="uid://dvwtxychn0ye3" path="res://scripts/ui/ui_debug_display_status.gd" id="7_62luo"]

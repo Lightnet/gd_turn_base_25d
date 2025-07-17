@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=7 format=3 uid="uid://buoascit7pwx8"]
+
+[ext_resource type="Script" uid="uid://mg33bjjytk20" path="res://scripts/entities/characters/CharacterData.gd" id="1_cxxhi"]
+[ext_resource type="Script" uid="uid://bay1oaxem5uav" path="res://research/research_data.gd" id="2_l84tw"]
+[ext_resource type="Script" uid="uid://btif7tedl3bkh" path="res://research/require_research.gd" id="3_014tm"]
+[ext_resource type="Script" uid="uid://c60cr61b4csj3" path="res://scripts/entities/player_data.gd" id="4_iipdk"]
+
+[sub_resource type="Resource" id="Resource_ed6gv"]
+script = ExtResource("2_l84tw")
+name = "test"
+description = ""
+is_unlocked = false
+cost = 0
+level = 0
+require_techs = Array[ExtResource("3_014tm")]([])
+
+[sub_resource type="Resource" id="Resource_ujkdg"]
+script = ExtResource("2_l84tw")
+name = "test2"
+description = ""
+is_unlocked = false
+cost = 0
+level = 0
+require_techs = Array[ExtResource("3_014tm")]([])
+
+[resource]
+script = ExtResource("4_iipdk")
+name = ""
+gender = "male"
+tech_point = 0
+members = Array[ExtResource("1_cxxhi")]([])
+researches = Array[ExtResource("2_l84tw")]([SubResource("Resource_ed6gv"), SubResource("Resource_ujkdg")])
+open_world_path = ""
+open_world_pos = Vector3(0, 0, 0)
+open_world_id = 0
+open_world_save_point = ""

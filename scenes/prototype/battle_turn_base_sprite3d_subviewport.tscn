@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c5witki1l2ggc" path="res://scripts/dummy/ui_battle_input01.gd" id="1_iqwpu"]
 [ext_resource type="Texture2D" uid="uid://bvy1j12eggfti" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="3_8qdce"]
-[ext_resource type="Material" uid="uid://dpsv1ha2hx8ta" path="res://prefabs/prototype/material/white_grid.tres" id="4_imlmw"]
-[ext_resource type="Material" uid="uid://2rfnmnpkbsib" path="res://prefabs/prototype/material/black_grid.tres" id="5_hsjcs"]
+[ext_resource type="Material" uid="uid://dpsv1ha2hx8ta" path="res://prefabs/materials/white_grid.tres" id="4_imlmw"]
+[ext_resource type="Material" uid="uid://2rfnmnpkbsib" path="res://prefabs/materials/black_grid.tres" id="5_hsjcs"]
 [ext_resource type="PackedScene" uid="uid://cwxi56jim0w86" path="res://prefabs/dummy_player/player_sprite3d_subviewport.tscn" id="6_2bl7l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_340pc"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=11 format=3 uid="uid://ofucwlfkl4a6"]
+
+[ext_resource type="Script" uid="uid://bpycrw26tcx4o" path="res://scripts/game/game_controller.gd" id="1_sf1ig"]
+[ext_resource type="PackedScene" uid="uid://ggcgga8fojy2" path="res://scenes/ui/ui_hub_area.tscn" id="2_sf1ig"]
+[ext_resource type="Script" uid="uid://g3ordwojnsd6" path="res://scripts/tests/global_player_data.gd" id="3_l618n"]
+[ext_resource type="Script" uid="uid://bay1oaxem5uav" path="res://research/research_data.gd" id="4_28tp7"]
+[ext_resource type="Script" uid="uid://mg33bjjytk20" path="res://scripts/entities/characters/CharacterData.gd" id="4_rr3xi"]
+[ext_resource type="Script" uid="uid://c60cr61b4csj3" path="res://scripts/entities/player_data.gd" id="5_83ido"]
+[ext_resource type="Resource" uid="uid://b765n347aiuyi" path="res://research/data/vehicles/vehcie_box.tres" id="5_fsdtq"]
+[ext_resource type="Resource" uid="uid://802d6otilwjn" path="res://research/data/vehicles/vehicle_car_flat.tres" id="6_6shkk"]
+[ext_resource type="Resource" uid="uid://bi8jx7sxi7acr" path="res://research/data/vehicles/vehicle_locomotive.tres" id="7_ifrpp"]
+
+[sub_resource type="Resource" id="Resource_pirwa"]
+script = ExtResource("5_83ido")
+name = "TestPlayer"
+gender = "male"
+tech_point = 0
+members = Array[ExtResource("4_rr3xi")]([])
+researches = Array[ExtResource("4_28tp7")]([ExtResource("5_fsdtq"), ExtResource("6_6shkk"), ExtResource("7_ifrpp")])
+open_world_path = ""
+open_world_pos = Vector3(0, 0, 0)
+open_world_id = 0
+open_world_save_point = ""
+metadata/_custom_type_script = "uid://c60cr61b4csj3"
+
+[node name="GameController" type="Node" node_paths=PackedStringArray("world_3d", "world_2d", "gui", "current_gui_scene")]
+script = ExtResource("1_sf1ig")
+world_3d = NodePath("World3D")
+world_2d = NodePath("World2D")
+gui = NodePath("GUI")
+current_gui_scene = NodePath("GUI/UIHubArea")
+
+[node name="SetUpPlayerDataTest" type="Node" parent="."]
+script = ExtResource("3_l618n")
+player_data = SubResource("Resource_pirwa")
+
+[node name="World2D" type="Node2D" parent="."]
+
+[node name="World3D" type="Node3D" parent="."]
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="UIHubArea" parent="GUI" instance=ExtResource("2_sf1ig")]

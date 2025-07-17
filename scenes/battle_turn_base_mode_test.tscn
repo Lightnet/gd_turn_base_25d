@@ -1,14 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://cgof3jd5h0s67"]
+[gd_scene load_steps=18 format=3 uid="uid://cgof3jd5h0s67"]
 
 [ext_resource type="Script" uid="uid://c5witki1l2ggc" path="res://scripts/dummy/ui_battle_input01.gd" id="1_bg0p7"]
 [ext_resource type="Texture2D" uid="uid://bvy1j12eggfti" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="2_57tbt"]
-[ext_resource type="Material" uid="uid://dpsv1ha2hx8ta" path="res://prefabs/prototype/material/white_grid.tres" id="3_vybp8"]
-[ext_resource type="Material" uid="uid://2rfnmnpkbsib" path="res://prefabs/prototype/material/black_grid.tres" id="4_0rubk"]
+[ext_resource type="Material" uid="uid://dpsv1ha2hx8ta" path="res://prefabs/materials/white_grid.tres" id="3_vybp8"]
+[ext_resource type="Material" uid="uid://2rfnmnpkbsib" path="res://prefabs/materials/black_grid.tres" id="4_0rubk"]
 [ext_resource type="PackedScene" uid="uid://b5lnsnwstsisx" path="res://prefabs/dummy_player/player_sprite3d.tscn" id="5_exrr8"]
 [ext_resource type="Script" uid="uid://3c4ki6mw6rxc" path="res://scripts/entities/stats_data.gd" id="6_eotkq"]
 [ext_resource type="Script" uid="uid://r5swqu5bw1wx" path="res://scripts/hitinfo/hitinfo.gd" id="7_gcvlo"]
 [ext_resource type="Script" uid="uid://dvwtxychn0ye3" path="res://scripts/ui/ui_debug_display_status.gd" id="8_h8akt"]
-[ext_resource type="Script" uid="uid://b65xw8h4krem5" path="res://scripts/gamemodes/dummy_turn_base_mode.gd" id="9_q3rwt"]
+[ext_resource type="Script" uid="uid://b65xw8h4krem5" path="res://scripts/game/dummy_turn_base_mode.gd" id="9_q3rwt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_340pc"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -61,6 +61,14 @@ tech_point = 0
 attack = 10.0
 defence = 10.0
 metadata/_custom_type_script = "uid://3c4ki6mw6rxc"
+
+[sub_resource type="Resource" id="Resource_bg0p7"]
+script = ExtResource("7_gcvlo")
+name = "HitInfo"
+amount_points = 50.0
+type = ""
+owner_name = "None"
+metadata/_custom_type_script = "uid://r5swqu5bw1wx"
 
 [node name="Node" type="Node3D"]
 
@@ -168,6 +176,114 @@ text = "Health:"
 layout_mode = 2
 text = "0/0"
 
+[node name="UIBattleWin" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/UIBattleWin"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UIBattleWin/CenterContainer"]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UIBattleWin/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UIBattleWin/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UIBattleWin/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = " Battle: Won "
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UIBattleWin/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/UIBattleWin/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Experince:"
+
+[node name="Label2" type="Label" parent="CanvasLayer/UIBattleWin/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0000"
+
+[node name="SplitContainer" type="SplitContainer" parent="CanvasLayer/UIBattleWin/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/UIBattleWin/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="btn_win_end_battle" type="Button" parent="CanvasLayer/UIBattleWin/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = " End Battle "
+
+[node name="UIBattleLost" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/UIBattleLost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UIBattleLost/CenterContainer"]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UIBattleLost/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UIBattleLost/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UIBattleLost/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = " Battle: Lost "
+horizontal_alignment = 1
+
+[node name="SplitContainer" type="SplitContainer" parent="CanvasLayer/UIBattleLost/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/UIBattleLost/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="btn_battle_lost" type="Button" parent="CanvasLayer/UIBattleLost/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = " End Battle "
+
 [node name="Level" type="Node3D" parent="."]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Level"]
@@ -242,6 +358,7 @@ hit_info = SubResource("Resource_tcgku")
 [node name="player_sprite3d2" parent="." instance=ExtResource("5_exrr8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.643591, 1.493, -0.661531)
 stats_data = SubResource("Resource_62luo")
+hit_info = SubResource("Resource_bg0p7")
 is_right = false
 
 [node name="UIDisplayStatus1" type="Node3D" parent="." node_paths=PackedStringArray("character", "label_state_animation", "label_state_machine", "label_health")]
@@ -263,3 +380,5 @@ script = ExtResource("9_q3rwt")
 
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/btn_attack01" to="CanvasLayer/Control" method="_on_btn_attack_01_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer2/btn_attack02" to="CanvasLayer/Control" method="_on_btn_attack_02_pressed"]
+[connection signal="pressed" from="CanvasLayer/UIBattleWin/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/btn_win_end_battle" to="dummy_turn_base_mode" method="_on_btn_win_end_battle_pressed"]
+[connection signal="pressed" from="CanvasLayer/UIBattleLost/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/btn_battle_lost" to="dummy_turn_base_mode" method="_on_btn_battle_lost_pressed"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ResearchData" load_steps=3 format=3 uid="uid://dla3gcy1e6weo"]
+
+[ext_resource type="Script" uid="uid://btif7tedl3bkh" path="res://research/require_research.gd" id="1_1d5j7"]
+[ext_resource type="Script" uid="uid://bay1oaxem5uav" path="res://research/research_data.gd" id="1_dwppu"]
+
+[resource]
+script = ExtResource("1_dwppu")
+name = "Passenger"
+description = ""
+is_unlocked = false
+cost = 0
+level = 0
+require_techs = Array[ExtResource("1_1d5j7")]([])

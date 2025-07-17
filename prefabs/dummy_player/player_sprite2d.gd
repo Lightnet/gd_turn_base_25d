@@ -17,6 +17,8 @@ class_name DummyPlayer
 @export var is_right:bool = true
 @onready var sprite_3d: Sprite3D = $Sprite3D
 
+@export var is_controller:bool = false
+
 func _ready() -> void:
 	# print(animation_player.get_animation_list())
 	set_is_right(is_right)
@@ -37,7 +39,7 @@ func attack():
 	#if animation_state:
 		#animation_state.attack()
 	animation_state.state.finished.emit(animation_state.state.ATTACK)
-	pass
+	#pass
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	#if anim_name == "attack":
@@ -48,7 +50,6 @@ func hurt(_hit_info:HitInfo):
 	
 	if stats_data and _hit_info:
 		stats_data.health -= _hit_info.amount_points
-	
 	animation_state.state.finished.emit(animation_state.state.DAMAGE)
 	pass
 	

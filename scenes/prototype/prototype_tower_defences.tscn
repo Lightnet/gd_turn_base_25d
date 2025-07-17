@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://u4heb0i5h0mb"]
+[gd_scene load_steps=8 format=3 uid="uid://b0msy671373bm"]
 
 [ext_resource type="Texture2D" uid="uid://bvy1j12eggfti" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="1_3a447"]
-[ext_resource type="Material" uid="uid://2rfnmnpkbsib" path="res://prefabs/prototype/material/black_grid.tres" id="2_bs4wy"]
-[ext_resource type="Material" uid="uid://dpsv1ha2hx8ta" path="res://prefabs/prototype/material/white_grid.tres" id="3_jsbeb"]
+[ext_resource type="Material" uid="uid://2rfnmnpkbsib" path="res://prefabs/materials/black_grid.tres" id="2_bs4wy"]
+[ext_resource type="Material" uid="uid://dpsv1ha2hx8ta" path="res://prefabs/materials/white_grid.tres" id="3_jsbeb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_340pc"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -90,19 +90,6 @@ material = ExtResource("2_bs4wy")
 
 [node name="Camera3D" type="Camera3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 0.941235, 0.337752, 0, -0.337752, 0.941235, 0, 3.02352, 3.87027)
-
-[node name="BodyPlayer" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0343845, 1.90231, 0.797822)
-script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
